@@ -30,9 +30,11 @@ The dataset (from Kaggle's [Titanic - Machine Learning from Disaster](https://ww
 ## Project Structure
 ```
 titanic-survival-prediction/
-├── train.csv               # Training dataset available in kaggle 
-├── test.csv                # Test dataset available in kaggle
+├── train.csv               # Training dataset
+├── test.csv                # Test dataset
 ├── titanic_model.ipynb     # Full ML workflow (Jupyter Notebook)
+├── titanic_model.py        # Python script version
+├── submission.csv          # Generated submission file
 └── README.md               # Project documentation
 ```
 
@@ -54,14 +56,13 @@ import matplotlib.pyplot as plt
 import seaborn as sns
 
 # Load data
-train = pd.read_csv("/kaggle/input/titanic-extended/train.csv")
-test = pd.read_csv("/kaggle/input/titanic-extended/test.csv")
-
-train.head()
+train = pd.read_csv("train.csv")
+test = pd.read_csv("test.csv")
 
 # Check missing values
 null_vals = train.isna().sum().sort_values(ascending=False)
 print("Train Missing Values:\n", null_vals[null_vals > 0])
+
 ```
 
 ### 2. Data Preprocessing
